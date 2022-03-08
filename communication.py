@@ -10,8 +10,8 @@ class communication(commands.Cog, name="Communication"):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(pass_context=True)
-    async def vr(self, ctx):
+    #@commands.command(pass_context=True)
+    #async def vr(self, ctx):
 
     @commands.command(pass_context=True)
     async def pingpoker(self, ctx):

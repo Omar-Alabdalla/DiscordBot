@@ -3,9 +3,12 @@
 import asyncio
 from asyncio import tasks
 
+import token
+
 import nextcord
 from nextcord.ext import commands
 
+import Token
 import communication
 import math1
 import music
@@ -52,4 +55,4 @@ bot.help_command = MyHelpCommand()
 # The color can be whatever you want, including normal color codes, 
 # I just like the discord green personally.
 # keep_alive()
-bot.run('OTMwNjIzNDQxMzQwNTk2MjM1.Yd4kng.5vUoNsjsUwzZ0DBvaAaOHlaAE78')
+bot.run(Token.TokenAuth())
