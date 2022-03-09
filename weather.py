@@ -1,16 +1,14 @@
 import os
 import requests
 from nextcord.ext import commands
-
+import Token
 
 def get_temp(zipp):
-    my_secret2 = os.environ['appid']
-    appid = my_secret2
     URL = f'http://api.openweathermap.org/data/2.5/weather?'
     params = {
         "zip": zipp,
         "units": "imperial",
-        "appid": appid
+        "appid": "Token"
     }
     r = requests.get(URL, params=params)
     print(URL, params)

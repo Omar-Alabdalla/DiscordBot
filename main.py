@@ -55,4 +55,4 @@ bot.help_command = MyHelpCommand()
 # The color can be whatever you want, including normal color codes, 
 # I just like the discord green personally.
 # keep_alive()
-bot.run(Token.TokenAuth())
+bot.run(Token.TokenDiscord())
