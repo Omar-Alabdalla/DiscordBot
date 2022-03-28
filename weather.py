@@ -1,7 +1,7 @@
-import os
 import requests
 from nextcord.ext import commands
 import Token
+
 
 def get_temp(zipp):
     URL = f'http://api.openweathermap.org/data/2.5/weather?'
@@ -19,7 +19,7 @@ def get_temp(zipp):
 
 
 def get_weather(zipp):
-    appid = '4dfadbea28e615de04f999674b24a504'
+    appid = Token.TokenWeather()
     URL = f'http://api.openweathermap.org/data/2.5/weather?'
     params = {
         "zip": zipp,

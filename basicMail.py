@@ -1,4 +1,6 @@
-import smtplib, ssl
+import smtplib
+import ssl
+
 import Token
 
 port = 465  # For SSL

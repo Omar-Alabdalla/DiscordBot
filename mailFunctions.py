@@ -2,7 +2,8 @@ from nextcord.ext import commands
 import mail
 import basicMail
 
-class mailFunctions(commands.Cog, name = "Email Functions"):
+
+class mailFunctions(commands.Cog, name="Email Functions"):
     def __init__(self, client):
         self.client = client
 

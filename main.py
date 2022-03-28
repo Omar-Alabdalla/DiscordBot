@@ -1,9 +1,5 @@
 # from keep_alive import keep_alive
 # from pretty_help import DefaultMenu, PrettyHelp  # https://github.com/stroupbslayen/discord-pretty-help
-import asyncio
-from asyncio import tasks
-
-import token
 
 import nextcord
 from nextcord.ext import commands
