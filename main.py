@@ -9,8 +9,10 @@ import communication
 import math1
 import music
 import weather
+import mailFunctions
 
 lst = []
+mail = [mailFunctions]
 music = [music]
 weather = [weather]
 communication = [communication]
@@ -18,6 +20,9 @@ math1 = [math1]
 
 bot = commands.Bot(command_prefix=['idk ', 'iDk ', 'idK ', 'Idk ', 'IDk ', 'IdK ', 'IDK ', 'iDK '],
                    case_insensitive=True)
+
+for i in range(len(mail)):
+    mail[i].setup(bot)
 
 for i in range(len(music)):
     music[i].setup(bot)
