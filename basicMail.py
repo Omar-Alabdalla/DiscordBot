@@ -4,6 +4,7 @@ from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import mailFunctions
 
 import Token
 
@@ -20,7 +21,7 @@ def sendMail(rmail, message):
         server.sendmail(sender_email, rmail, message)
 
 
-def sendFileMail(rmail, message):
+def sendFileMail(rmail, a):
     mail_content = '''Hello,
     This is a test mail.
     In this mail we are sending some attachments.
@@ -36,7 +37,8 @@ def sendFileMail(rmail, message):
     # The subject line
     # The body and the attachments for the mail
     message.attach(MIMEText(mail_content, 'plain'))
-    attach_file_name = 'TP_python_prev.pdf'
+    attach_file_name = a
+    print(attach_file_name)
     attach_file = open(attach_file_name, 'rb')  # Open the file as binary mode
     payload = MIMEBase('application', 'octate-stream')
     payload.set_payload(attach_file.read())

@@ -1,6 +1,8 @@
 # from keep_alive import keep_alive
 # from pretty_help import DefaultMenu, PrettyHelp  # https://github.com/stroupbslayen/discord-pretty-help
 
+import asyncio
+
 import nextcord
 from nextcord.ext import commands
 
@@ -41,7 +43,13 @@ for i in range(len(math1)):
 async def on_ready():
     print('Client Ready')
 
-
+@bot.command()
+async def haharehdfg(ctx):
+    await asyncio.sleep(62640)
+    f = True
+    while f is True:
+        await ctx.send("HAHA")
+        await asyncio.sleep(86400)
 # https://youtu.be/V1bFr2SWP1I
 class MyHelpCommand(commands.MinimalHelpCommand):
     async def send_pages(self):
