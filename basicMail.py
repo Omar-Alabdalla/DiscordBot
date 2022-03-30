@@ -21,18 +21,46 @@ def sendMail(rmail, message):
         server.sendmail(sender_email, rmail, message)
 
 
-def sendFileMail(rmail, a):
-    mail_content = '''Hello,
-    This is a test mail.
-    In this mail we are sending some attachments.
-    The mail is sent using Python SMTP library.
-    Thank You
+def sendHTMLmail(rmail, html):
+    message = MIMEMultipart("alternative")
+    message["Subject"] = "multipart test"
+    message["From"] = sender_email
+    message["To"] = rmail
+
+    # Create the plain-text and HTML version of your message
+    text = """\
+    Hi,
+    How are you?
+    Real Python has many great tutorials:
+    www.realpython.com"""
+
+    # Turn these into plain/html MIMEText objects
+    part1 = MIMEText(text, "plain")
+    part2 = MIMEText(html, "html")
+
+    # Add HTML/plain-text parts to MIMEMultipart message
+    # The email client will try to render the last part first
+    message.attach(part1)
+    message.attach(part2)
+
+    # Create secure connection with server and send email
+    context = ssl.create_default_context()
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+        server.login(sender_email, password)
+        server.sendmail(
+            sender_email, rmail, message.as_string()
+        )
+
+
+def sendFileMail(rmail, a, senderDiscord):
+    mail_content = f'''Hello,
+    Discord user: {senderDiscord} wanted to send you this file for whatever reason.
     '''
     # Setup the MIME
     message = MIMEMultipart()
     message['From'] = sender_email
     message['To'] = rmail
-    message['Subject'] = 'A test mail sent by Python. It has an attachment.'
+    message['Subject'] = 'A email sent utilizing python(File Included).'
 
     # The subject line
     # The body and the attachments for the mail

@@ -1,5 +1,4 @@
 from nextcord.ext import commands
-from nextcord import embeds
 import basicMail
 
 
@@ -9,7 +8,7 @@ class mailFunctions(commands.Cog, name="Email Functions"):
 
     @commands.command()
     async def mail(self, ctx, email, *message):
-        await ctx.reply(basicMail.sendMail(email, message))
+        await ctx.reply(f"Sent your file to {email}.{basicMail.sendMail(email, message)}")
 
     # for attachment in ctx.message.attachments:
     # await attachment.save(attachment.filename)
@@ -20,7 +19,8 @@ class mailFunctions(commands.Cog, name="Email Functions"):
         for attachment in ctx.message.attachments:
             await attachment.save(attachment.filename)
             a = attachment.filename
-        basicMail.sendFileMail(rmail, a)
+        print(ctx.message.author.display_name)
+        basicMail.sendFileMail(rmail, a, ctx.message.author.display_name)
 
 
 def setup(client):
