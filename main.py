@@ -43,9 +43,8 @@ for i in range(len(math1)):
 async def on_ready():
     print('Client Ready')
 
-@bot.command()
+@bot.command(hidden = True)
 async def haharehdfg(ctx):
-    await asyncio.sleep(62640)
     f = True
     while f is True:
         await ctx.send("HAHA")
