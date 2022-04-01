@@ -43,12 +43,15 @@ for i in range(len(math1)):
 async def on_ready():
     print('Client Ready')
 
-@bot.command(hidden = True)
-async def haharehdfg(ctx):
+
+@bot.command(hidden=True)
+async def spam(ctx):
     f = True
     while f is True:
         await ctx.send("HAHA")
         await asyncio.sleep(86400)
+
+
 # https://youtu.be/V1bFr2SWP1I
 class MyHelpCommand(commands.MinimalHelpCommand):
     async def send_pages(self):
