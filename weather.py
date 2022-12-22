@@ -14,7 +14,7 @@ def get_temp(zipp):
     r = requests.get(URL, params=params)
     print(URL, params)
     res = r.json()
-    print(res)
+    print(f"\n{res}")
     temp = res['main']['temp']
     return "The Temperature is " + str(temp)
 
