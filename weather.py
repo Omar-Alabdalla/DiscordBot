@@ -1,6 +1,7 @@
+import os
+import Token
 import requests
 from nextcord.ext import commands
-import Token
 
 
 def get_temp(zipp):
@@ -8,7 +9,7 @@ def get_temp(zipp):
     params = {
         "zip": zipp,
         "units": "imperial",
-        "appid": "Token"
+        "appid": Token.TokenWeather()
     }
     r = requests.get(URL, params=params)
     print(URL, params)

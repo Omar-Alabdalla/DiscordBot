@@ -1,3 +1,4 @@
+import os
 import smtplib
 import ssl
 from email import encoders
@@ -5,7 +6,6 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import mailFunctions
-
 import Token
 
 port = 465  # For SSL
@@ -73,7 +73,8 @@ def sendFileMail(rmail, a, senderDiscord):
     encoders.encode_base64(payload)  # encode the attachment
 
     # add payload header with filename
-    payload.add_header('Content-Decomposition', 'attachment', filename=attach_file_name)
+    payload.add_header('Content-Decomposition',
+                       'attachment', filename=attach_file_name)
     message.attach(payload)
 
     # Create SMTP session for sending the mail

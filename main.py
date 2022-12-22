@@ -1,3 +1,5 @@
+import json
+import Token
 # from keep_alive import keep_alive
 # from pretty_help import DefaultMenu, PrettyHelp  # https://github.com/stroupbslayen/discord-pretty-help
 
@@ -6,31 +8,28 @@ import asyncio
 import nextcord
 from nextcord.ext import commands
 
-import Token
-import communication
 import math1
 import music
 import weather
 import mailFunctions
 
+intents = nextcord.Intents.default()
+intents.message_content = True
+
 lst = []
 mail = [mailFunctions]
 music = [music]
 weather = [weather]
-communication = [communication]
 math1 = [math1]
 
 bot = commands.Bot(command_prefix=['idk ', 'iDk ', 'idK ', 'Idk ', 'IDk ', 'IdK ', 'IDK ', 'iDK '],
-                   case_insensitive=True)
+                   case_insensitive=True, intents=intents)
 
 for i in range(len(mail)):
     mail[i].setup(bot)
 
 for i in range(len(music)):
     music[i].setup(bot)
-
-for i in range(len(communication)):
-    communication[i].setup(bot)
 
 for i in range(len(weather)):
     weather[i].setup(bot)
@@ -63,7 +62,7 @@ class MyHelpCommand(commands.MinimalHelpCommand):
 
 
 bot.help_command = MyHelpCommand()
-# The color can be whatever you want, including normal color codes, 
+# The color can be whatever you want, including normal color codes,
 # I just like the discord green personally.
 # keep_alive()
-bot.run(Token.TokenDiscord())
+bot.run(Token.discordToken())
